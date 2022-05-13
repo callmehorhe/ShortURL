@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "./github.com/callmehorhe/shorturl/api/pkg/grpc";
+
+service URL {
+    rpc Create (UrlMessage) returns (UrlMessage) {}
+    rpc Get (UrlMessage) returns (UrlMessage) {}
+}
+
+message UrlMessage{
+    string url = 1;
+}
