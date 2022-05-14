@@ -2,7 +2,7 @@
 FROM golang:1.18-alpine3.15 AS builder
 WORKDIR /app
 COPY . .
-RUN go build -o main main.go
+RUN go build -o main ./api/server/main.go
 
 #run
 FROM alpine:3.15

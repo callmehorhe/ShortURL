@@ -9,9 +9,13 @@ import (
 	"github.com/callmehorhe/shorturl/api/pkg/repository"
 	"github.com/callmehorhe/shorturl/api/pkg/service"
 	"google.golang.org/grpc"
+	"github.com/joho/godotenv"
 )
 
 func main() {
+	if err := godotenv.Load(); err != nil {
+		log.Fatal(err)
+	}
 	db, err := repository.NewPostgresDB(repository.Config{
 		Host:     os.Getenv("DB_HOST"),
 		Port:     os.Getenv("DB_PORT"),
